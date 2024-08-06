@@ -68,6 +68,8 @@ public class TranslationApiServiceImpl implements TranslationApiService {
         try {
             ResponseEntity<String> response = restTemplate.exchange(apiUrl, HttpMethod.POST, requestEntity, String.class);
             return extractFieldFromJSON(response.getBody(), "text");
+        }  catch (HttpClientErrorException.Unauthorized e) {
+            throw new TranslationException("Unknown API key", e);
         } catch (HttpClientErrorException e) {
             handleHttpClientErrorException(e);
         } catch (ResourceAccessException e) {
