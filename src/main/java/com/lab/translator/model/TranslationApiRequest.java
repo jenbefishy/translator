@@ -11,7 +11,8 @@ public class TranslationApiRequest {
     }
 
     public TranslationApiRequest(String sourceLanguageCode, List<String> texts, String targetLanguageCode) {
-        this.targetLanguageCode = targetLanguageCode;this.sourceLanguageCode = sourceLanguageCode;
+        this.targetLanguageCode = targetLanguageCode;
+	this.sourceLanguageCode = sourceLanguageCode;
         this.texts = texts;
     }
 
